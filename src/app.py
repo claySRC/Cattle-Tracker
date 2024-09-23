@@ -8,11 +8,11 @@ from io import StringIO
 # Function to fetch CSV from GitHub
 def fetch_csv_from_github(url):
     response = requests.get(url)
-    if url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/Brancroft%20mown%20v1_0.csv':
+    if url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Brancroft%20mown%20v1_0.csv':
         df = pd.read_csv(StringIO(response.text), skiprows=25)
-    elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/M_srad.csv':
+    elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/M_srad.csv':
         df = pd.read_csv(StringIO(response.text), parse_dates=[['date', 'time']])
-    elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/precip.csv':
+    elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/precip.csv':
         df = pd.read_csv(StringIO(response.text), parse_dates=[['date', 'time']])
     else:
         df = pd.read_csv(StringIO(response.text))
@@ -20,10 +20,10 @@ def fetch_csv_from_github(url):
 
 # GitHub raw URLs for the four CSV files
 csv_urls = {
-    'bancroft_mown': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/Brancroft%20mown%20v1_0.csv',
-    'm_srad': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/M_srad.csv',
-    'precip': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/precip.csv',
-    'treatment': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/treatment_avg_sm_temp_15min.csv'
+    'bancroft_mown': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Brancroft%20mown%20v1_0.csv',
+    'm_srad': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/M_srad.csv',
+    'precip': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/precip.csv',
+    'treatment': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/treatment_avg_sm_temp_15min.csv'
 }
 
 # Processing function for Bancroft mown CSV
