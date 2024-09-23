@@ -8,7 +8,7 @@ from io import StringIO
 # Function to fetch CSV from GitHub
 def fetch_csv_from_github(url):
     response = requests.get(url)
-    if url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Bancroft%20mown%20v1_0.csv':
+    if url == 'https://github.com/claySRC/Cattle-Tracker/edit/main/src/Bancroft%20mown%20v1_0.c':
         df = pd.read_csv(StringIO(response.text), skiprows=25)
     elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/M_srad.csv':
         df = pd.read_csv(StringIO(response.text), parse_dates=[['date', 'time']])
@@ -65,7 +65,6 @@ def process_treatment(df):
 
 # Dash app setup
 app = dash.Dash(__name__)
-server = app.server
 
 app.layout = html.Div([
     html.H1("Download Combined CSV"),
