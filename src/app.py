@@ -8,7 +8,7 @@ from io import StringIO
 # Function to fetch CSV from GitHub
 def fetch_csv_from_github(url):
     response = requests.get(url)
-    if url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Brancroft%20mown%20v1_0.csv':
+    if url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Bancroft%20mown%20v1_0.csv':
         df = pd.read_csv(StringIO(response.text), skiprows=25)
     elif url == 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/M_srad.csv':
         df = pd.read_csv(StringIO(response.text), parse_dates=[['date', 'time']])
@@ -20,7 +20,7 @@ def fetch_csv_from_github(url):
 
 # GitHub raw URLs for the four CSV files
 csv_urls = {
-    'bancroft_mown': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Brancroft%20mown%20v1_0.csv',
+    'bancroft_mown': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/Bancroft%20mown%20v1_0.csv',
     'm_srad': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/M_srad.csv',
     'precip': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/precip.csv',
     'treatment': 'https://raw.githubusercontent.com/claySRC/Cattle-Tracker/refs/heads/main/src/treatment_avg_sm_temp_15min.csv'
@@ -65,7 +65,6 @@ def process_treatment(df):
 
 # Dash app setup
 app = dash.Dash(__name__)
-server = app.server
 
 app.layout = html.Div([
     html.H1("Download Combined CSV"),
