@@ -1,4 +1,4 @@
-import dash
+veimport dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import pandas as pd
@@ -65,6 +65,7 @@ def process_treatment(df):
 
 # Dash app setup
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.H1("Download Combined CSV"),
